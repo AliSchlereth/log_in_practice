@@ -5,11 +5,12 @@ describe "user creates an account" do
     it "enter user information" do
       visit new_user_path
 
-      fill_in "First Name", with: "A"
-      fill_in "Last Name", with: "S"
-      fill_in "Password", with: "password"
-      fill_in "Password Confirmation", with: "password"
-      click_on "Submit"
+      fill_in "user[first_name]", with: "A"
+      fill_in "user[last_name]", with: "S"
+      fill_in "user[email]", with: "email@email.com"
+      fill_in "user[password]", with: "password"
+      fill_in "user[password_confirmation]", with: "password"
+      click_on "Create User"
 
       expect(page).to have_content("Welcome A S!")
     end
